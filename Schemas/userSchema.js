@@ -20,7 +20,7 @@ const userSchema = gql`
 
   type Mutation {
     register(username: String!, email: String!, password: String!, role:String): User!
-    login(email: String!, password: String!): User!
+    login(email: String!, password: String!): AuthPayload
     logout: String!
   }
 `;

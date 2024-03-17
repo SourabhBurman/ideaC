@@ -42,7 +42,6 @@ exports.userResolvers = {
         const token = jwt.sign({
           userId: user._id
         }, 'secret', { expiresIn: '1h' });
-      console.log(token)
         return { token,username:user.username };
       } catch (error) {
         console.error(error);

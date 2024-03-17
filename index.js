@@ -15,19 +15,19 @@ const server = new ApolloServer({
   typeDefs:[userSchema,bookSchema],
   resolvers:[userResolvers,bookResolvers],
   context: async ({ req }) => {
-  //   const token = req.headers.authorization || "";
-  //   let user = null;
-  //   try {
+    const token = req.headers.authorization?.split(" ")[1] || "";
+    let user = null;
+    try {
 
-  //     if (token) {
-  //         const decodedToken = jwt.verify(token, "secret");
-  //         const userId = decodedToken.userId;
-  //         user = await UserModel.findById(userId);
-  //     } 
-  // } catch (error) {
-  //     console.error("Error decoding token:", error.message);
-  // }
-let user = req.user
+      if (token) {
+          const decodedToken = jwt.verify(token, "secret");
+          const userId = decodedToken.userId;
+          user = await UserModel.findById(userId);
+      } 
+  } catch (error) {
+      console.error("Error decoding token:", error.message);
+  }
+// let user = req.user
   return { user };
   },
 });
