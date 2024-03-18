@@ -65,7 +65,6 @@ Welcome to the Library Management System, a comprehensive solution for managing 
         email
         password
         role
-       status
       }
     }
      ```
@@ -139,12 +138,12 @@ Welcome to the Library Management System, a comprehensive solution for managing 
   - Example Mutation:
     ``` graphql
     mutation {
-      register(userInput: {
-        name: "abc",
+      register(
+        username: "abc",
         email: "abc@example.com",
         password: "password",
         role: "admin"
-      }) {
+    ) {
         id
         username
         email
